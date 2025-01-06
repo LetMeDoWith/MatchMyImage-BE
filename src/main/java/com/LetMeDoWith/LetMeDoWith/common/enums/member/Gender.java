@@ -1,8 +1,9 @@
 package com.LetMeDoWith.LetMeDoWith.common.enums.member;
 
-import com.LetMeDoWith.LetMeDoWith.common.enums.BaseEnum;
 import com.LetMeDoWith.LetMeDoWith.common.converter.member.GenderConverter;
+import com.LetMeDoWith.LetMeDoWith.common.enums.BaseEnum;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -10,6 +11,7 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 @JsonDeserialize(using = GenderConverter.class)
+@Schema(enumAsRef = true)
 public enum Gender implements BaseEnum {
     MALE("M", "남성"),
     FEMALE("F", "여성");

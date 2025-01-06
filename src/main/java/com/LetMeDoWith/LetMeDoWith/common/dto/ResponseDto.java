@@ -1,11 +1,14 @@
 package com.LetMeDoWith.LetMeDoWith.common.dto;
 
-import lombok.AllArgsConstructor;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
-import lombok.Getter;
 
 
 @Builder
-public record ResponseDto<T>(String statusCode, String message, T data) {
-
+@Schema(description = "요청에 대한 응답 스키마")
+public record ResponseDto<T>(
+    String statusCode,
+    String message,
+    T data) {
+    
 }

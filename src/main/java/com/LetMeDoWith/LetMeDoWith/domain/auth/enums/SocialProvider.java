@@ -5,6 +5,7 @@ import com.LetMeDoWith.LetMeDoWith.common.enums.BaseEnum;
 import com.LetMeDoWith.LetMeDoWith.common.exception.RestApiException;
 import com.LetMeDoWith.LetMeDoWith.common.exception.status.FailResponseStatus;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Arrays;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,6 +13,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 @JsonDeserialize(using = SocialProviderConverter.class)
+@Schema(enumAsRef = true)
 public enum SocialProvider implements BaseEnum {
     
     KAKAO("KAKAO", "카카오", "https://kauth.kakao.com"),

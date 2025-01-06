@@ -1,6 +1,8 @@
 package com.LetMeDoWith.LetMeDoWith.presentation.task.controller;
 
 import com.LetMeDoWith.LetMeDoWith.application.task.service.TaskCategoryService;
+import com.LetMeDoWith.LetMeDoWith.common.annotation.ApiSuccessResponse;
+import com.LetMeDoWith.LetMeDoWith.common.dto.ResponseDto;
 import com.LetMeDoWith.LetMeDoWith.common.util.AuthUtil;
 import com.LetMeDoWith.LetMeDoWith.common.util.ResponseUtil;
 import com.LetMeDoWith.LetMeDoWith.presentation.task.dto.GetAllTaskCategoryRes;
@@ -22,10 +24,11 @@ public class TaskCategoryController {
     
     @Autowired
     private TaskCategoryService taskCategoryService;
-
-    @Operation(summary = "테스크 카테고리 조회", description = "테스트 카테고리를 조회합니다.")
+    
+    @Operation(summary = "태스크 카테고리 조회", description = "모든 태스크 카테고리를 조회합니다. (공통 + 유저 생성)")
+    @ApiSuccessResponse(description = "카테고리 조회 성공")
     @GetMapping("")
-    public ResponseEntity getAllTaskCategories() {
+    public ResponseEntity<ResponseDto<List<GetAllTaskCategoryRes>>> getAllTaskCategories() {
         
         Long memberId = AuthUtil.getMemberId();
         

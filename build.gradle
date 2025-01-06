@@ -24,7 +24,7 @@ configurations {
 
 // 환경변수 설정
 ext {
-    awsCliProfile= System.getenv("AWS_CLI_PROFILE")
+    awsCliProfile = System.getenv("AWS_CLI_PROFILE")
     dockerImageName = System.getenv("DOCKER_IMAGE_NAME")
     dockerImageTag = System.getenv("DOCKER_IMAGE_TAG")
     ecrRepository = System.getenv("ECR_REPOSITORY")
@@ -82,13 +82,14 @@ dependencies {
 
     // swagger
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'
+    annotationProcessor 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'
 
-    // swagger
-    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'
 
 }
 
-import com.bmuschko.gradle.docker.tasks.image.*
+
+import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+import com.bmuschko.gradle.docker.tasks.image.DockerTagImage
 
 task buildDockerImage(type: DockerBuildImage) {
     group = "docker"

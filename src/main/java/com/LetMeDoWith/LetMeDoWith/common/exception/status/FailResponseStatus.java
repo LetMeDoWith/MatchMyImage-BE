@@ -61,52 +61,51 @@ public enum FailResponseStatus {
                        "E219",
                        HttpStatus.BAD_REQUEST,
                        "이미 존재하는 닉네임입니다"),
-
+    
     // Badge 도메인 관련 Exception - E22X
     MEMBER_CANNOT_WITHDRAW("MEMBER_CANNOT_WITHDRAW",
-        "E220",
-        HttpStatus.BAD_REQUEST,
-        "회원을 찾을 수 없습니다. 이미 탈퇴하였거나 회원가입이 완료되지 않았습니다."),
+                           "E220",
+                           HttpStatus.BAD_REQUEST,
+                           "회원을 찾을 수 없습니다. 이미 탈퇴하였거나 회원가입이 완료되지 않았습니다."),
     MEMBER_NOT_EXIST_BADGE("MEMBER_BADGE_NOT_EXIST",
-                        "E220",
-                        HttpStatus.BAD_REQUEST,
-                        "뱃지 관련 작업 수행을 위한 회원이 존재하지 않습니다."),
+                           "E220",
+                           HttpStatus.BAD_REQUEST,
+                           "뱃지 관련 작업 수행을 위한 회원이 존재하지 않습니다."),
     BADGE_NOT_EXIST("BADGE_NOT_EXIST",
-                        "E221",
-                        HttpStatus.BAD_REQUEST,
-                        "해당 뱃지가 존재하지 않습니다"),
+                    "E221",
+                    HttpStatus.BAD_REQUEST,
+                    "해당 뱃지가 존재하지 않습니다"),
     LAZY_NOT_AVAIL_UPDATE_MAIN_BADGE("LAZY_NOT_AVAIL_UPDATE_MAIN_BADGE",
-                        "E222",
-                        HttpStatus.BAD_REQUEST,
-                        "레이지 뱃지를 받은 회원은 대표 뱃지를 설정할 수 없습니다."),
+                                     "E222",
+                                     HttpStatus.BAD_REQUEST,
+                                     "레이지 뱃지를 받은 회원은 대표 뱃지를 설정할 수 없습니다."),
     MEMBER_BADGE_NOT_EXIST("MEMBER_BADGE_NOT_EXIST",
-                        "E223",
-                        HttpStatus.BAD_REQUEST,
-                        "획득하지 않은 뱃지입니다"),
-
+                           "E223",
+                           HttpStatus.BAD_REQUEST,
+                           "획득하지 않은 뱃지입니다"),
+    
     // Dowith Task 관련 Exception - E23X
     DOWITH_TASK_CREATE_COUNT_EXCEED("DOWITH_TASK_CREATE_COUNT_EXCEED",
-                                "E230",
-                                HttpStatus.BAD_REQUEST,
-                                "일일 등록 가능한 두윗모드 갯수를 초과하였습니다."),
+                                    "E230",
+                                    HttpStatus.BAD_REQUEST,
+                                    "일일 등록 가능한 두윗모드 갯수를 초과하였습니다."),
     DOWITH_TASK_UPDATE_NOT_AVAIL("DOWITH_TASK_UPDATE_NOT_AVAIL",
-                                "E231",
-                                HttpStatus.BAD_REQUEST,
-                                "수정이 불가합니다."),
+                                 "E231",
+                                 HttpStatus.BAD_REQUEST,
+                                 "수정이 불가합니다."),
     DOWITH_TASK_NOT_EXIST("DOWITH_TASK_NOT_EXIST",
-                                "E232",
-                                HttpStatus.BAD_REQUEST,
-                                "존재하지 않는 두윗모드 테스크입니다."),
+                          "E232",
+                          HttpStatus.BAD_REQUEST,
+                          "존재하지 않는 두윗모드 테스크입니다."),
     DOWITH_TASK_NOT_AVAIL_START_TIME("DOWITH_TASK_NOT_AVAIL_START_TIME",
-                                        "E243",
-                                HttpStatus.BAD_REQUEST,
-                                "등록 불가한 시작시간입니다."),
+                                     "E243",
+                                     HttpStatus.BAD_REQUEST,
+                                     "등록 불가한 시작시간입니다."),
     DOWITH_TASK_NOT_AVAIL_DATE("DOWITH_TASK_NOT_AVAIL_START_TIME",
-        "E243",
-        HttpStatus.BAD_REQUEST,
-        "등록 불가한 날짜입니다."),
-
-
+                               "E243",
+                               HttpStatus.BAD_REQUEST,
+                               "등록 불가한 날짜입니다."),
+    
     /**
      * 401 UnAuthorized Error 인증 관련 오류
      */
@@ -118,7 +117,10 @@ public enum FailResponseStatus {
                            HttpStatus.UNAUTHORIZED,
                            "만료된 토큰입니다."),
     INVALID_TOKEN("INVALID_TOKEN", "E304", HttpStatus.UNAUTHORIZED, "유효하지 않은 토큰입니다"),
-    INVALID_JWT_TOKEN_FORMAT("INVALID_JWT_TOKEN_FORMAT", "E305", HttpStatus.UNAUTHORIZED, "올바르지 않은 JWT 토큰입니다."),
+    INVALID_JWT_TOKEN_FORMAT("INVALID_JWT_TOKEN_FORMAT",
+                             "E305",
+                             HttpStatus.UNAUTHORIZED,
+                             "올바르지 않은 JWT 토큰입니다."),
     INVALID_RTK_TOKEN_MEMBER_NOT_MATCHED("INVALID_RTK_TOKEN_MEMBER_NOT_MATCHED",
                                          "E306",
                                          HttpStatus.UNAUTHORIZED,
@@ -127,15 +129,15 @@ public enum FailResponseStatus {
                                       "E307",
                                       HttpStatus.UNAUTHORIZED,
                                       "유효하지 않은 토큰 소유자입니다."), // TODO - ALERT 대상
-    INVALID_RTK_TOKEN_USER_AGENT_NOT_MATCHED("INVALID_RTK_TOKEN_ATK_NOT_MATCHED",
-        "E308",
-        HttpStatus.UNAUTHORIZED,
-        "유효하지 않은 토큰 소유자입니다."), // TODO - ALERT 대상
+    INVALID_RTK_TOKEN_USER_AGENT_NOT_MATCHED("INVALID_RTK_TOKEN_USER_AGENT_NOT_MATCHED",
+                                             "E308",
+                                             HttpStatus.UNAUTHORIZED,
+                                             "유효하지 않은 토큰 소유자입니다."), // TODO - ALERT 대상
     OIDC_ID_TOKEN_PUBKEY_NOT_FOUND("OIDC_ID_TOKEN_PUBKEY_NOT_FOUND",
                                    "E309",
                                    HttpStatus.UNAUTHORIZED,
                                    "OpenID Connect ID Token의 공개키를 찾을 수 없습니다."),
-
+    
     /**
      * 500 Interal Server Error 서버 내부 오류 및 서버 관리자의 조치로 인한 오류
      */
@@ -146,7 +148,7 @@ public enum FailResponseStatus {
     CODE_ENUM_NOT_EXIST("CODE_ENUM_NOT_EXIST",
                         "E401",
                         HttpStatus.INTERNAL_SERVER_ERROR,
-                "코드에 대응되는 Enum이 존재하지 않습니다.");
+                        "코드에 대응되는 Enum이 존재하지 않습니다.");
     
     private final String statusName;
     private final String statusCode;

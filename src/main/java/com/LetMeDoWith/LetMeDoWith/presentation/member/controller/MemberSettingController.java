@@ -2,6 +2,10 @@ package com.LetMeDoWith.LetMeDoWith.presentation.member.controller;
 
 import com.LetMeDoWith.LetMeDoWith.application.member.dto.UpdateMemberAlarmSettingCommand;
 import com.LetMeDoWith.LetMeDoWith.application.member.service.MemberSettingService;
+import com.LetMeDoWith.LetMeDoWith.common.annotation.ApiErrorResponses;
+import com.LetMeDoWith.LetMeDoWith.common.annotation.ApiSuccessResponse;
+import com.LetMeDoWith.LetMeDoWith.common.dto.ResponseDto;
+import com.LetMeDoWith.LetMeDoWith.common.exception.status.FailResponseStatus;
 import com.LetMeDoWith.LetMeDoWith.common.util.ResponseUtil;
 import com.LetMeDoWith.LetMeDoWith.presentation.member.dto.UpdateMemberAlarmSettingReq;
 import io.swagger.v3.oas.annotations.Operation;
@@ -28,8 +32,11 @@ public class MemberSettingController {
      * @return 성공 응답
      */
     @Operation(summary = "알림 수신 상태 변경", description = "회원의 알림 수신 상태를 변경합니다.")
+    @ApiSuccessResponse(description = "회원 알림 수신상태 변경 성공")
+    @ApiErrorResponses(errors = {FailResponseStatus.MEMBER_NOT_EXIST})
     @PutMapping("/alarm")
-    public ResponseEntity updateAlarm(@RequestBody UpdateMemberAlarmSettingReq req) {
+    public <T> ResponseEntity<ResponseDto<T>> updateAlarm(
+        @RequestBody UpdateMemberAlarmSettingReq req) {
         memberSettingService.updateAlarmSetting(UpdateMemberAlarmSettingCommand.fromReq(req));
         
         return ResponseUtil.createSuccessResponse();

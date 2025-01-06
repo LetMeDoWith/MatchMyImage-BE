@@ -50,5 +50,6 @@ out/
 ### Dev server artifacts ###
 samLocalEnvVars.json
 .aws-sam/
+*.env
 
 /.DS_Store
